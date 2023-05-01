@@ -36,10 +36,15 @@ public class ControllerCliente {
         rc.getIdCliente().setText(String.valueOf(id));
         rc.setVisible(true);
         rc.getBtnRegistroCliente().addActionListener(l -> registrarCliente());
-        f.getBtnAgregarItem().addActionListener(l -> item.setVisible(true));
+        f.getBtnAgregarItem().addActionListener(l -> abrirItem());
         cargaColumnas();
         item.getBtnRegistroItem().addActionListener(l -> registroITem());
         item.getBtnCerrarItem().addActionListener(l -> item.dispose());
+    }
+
+    public void abrirItem() {
+        item.getIdFactura().setText(String.valueOf(id));
+        item.setVisible(true);
     }
 
     public void cargaColumnas() {
@@ -56,70 +61,85 @@ public class ControllerCliente {
 
     public void registrarCliente() {
 
-        String nombreCliente = rc.getNombreCliente().getText();
-        String apellidoCliente = rc.getApeCliente().getText();
-        String cedulaCLiente = rc.getCedulaCliente().getText();
-        String correoCliente = rc.getCorreoCliente().getText();
+        if (validarCliente()) {
 
-        Cliente cliente = new Cliente();
-        cliente.setNombreCliente(nombreCliente);
-        cliente.setApellidoCliente(apellidoCliente);
-        cliente.setCorreoCliente(correoCliente);
-        cliente.setCedulaCLiente(cedulaCLiente);
+            String nombreCliente = rc.getNombreCliente().getText();
+            String apellidoCliente = rc.getApeCliente().getText();
+            String cedulaCLiente = rc.getCedulaCliente().getText();
+            String correoCliente = rc.getCorreoCliente().getText();
 
-        for (int i = 0; i < listaCliente.size(); i++) {
-            listaCliente.add(cliente);
+            Cliente cliente = new Cliente();
+            cliente.setNombreCliente(nombreCliente);
+            cliente.setApellidoCliente(apellidoCliente);
+            cliente.setCorreoCliente(correoCliente);
+            cliente.setCedulaCLiente(cedulaCLiente);
+
+            for (int i = 0; i < listaCliente.size(); i++) {
+                listaCliente.add(cliente);
+            }
+
+            System.out.println(cliente.getNombreCliente());
+            JOptionPane.showMessageDialog(null, "CLIENTE REGISTRADO CORRECTAMENTE");
+            rc.dispose();
+            f.setVisible(true);
+            f.getIdFactura().setText(String.valueOf(id));
+            f.getCedulaCliente().setText(cedulaCLiente);
+            f.getTelefonoFactura().setText("0982122184");
+            int cod = hashCode();
+            f.getRucFactura().setText(String.valueOf(cod));
+            DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm:ss z");
+
+            String date = dateFormat.format(new Date());
+            f.getFechaFactura().setText(date);
+            limpiarCamposCliente();
         }
-
-        System.out.println(cliente.getNombreCliente());
-        JOptionPane.showMessageDialog(null, "CLIENTE REGISTRADO CORRECTAMENTE");
-        rc.dispose();
-        f.setVisible(true);
-        f.getIdFactura().setText(String.valueOf(id));
-        f.getCedulaCliente().setText(cedulaCLiente);
-        f.getTelefonoFactura().setText("0982122184");
-        int cod = hashCode();
-        f.getRucFactura().setText(String.valueOf(cod));
-        DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm:ss z");
-
-        String date = dateFormat.format(new Date());
-        f.getFechaFactura().setText(date);
     }
 
     public void registroITem() {
 
-        item.getIdFactura().setText(String.valueOf(id));
-        boolean iva;
-        ArrayList<Object> datos = new ArrayList<>();
-        if (item.getRadioIVA().isSelected()) {
-            iva = true;
-        } else {
-            iva = false;
+        if (validarItem()) {
+            item.getIdFactura().setText(String.valueOf(id));
+            boolean iva;
+            ArrayList<Object> datos = new ArrayList<>();
+            if (item.getRadioIVA().isSelected()) {
+                iva = true;
+            } else {
+                iva = false;
+            }
+
+            Item i = new Item();
+            i.setCantidad(Integer.parseInt(item.getCantidadItem().getText()));
+            i.setDetalle(item.getDetalleItem().getText());
+            i.setIva(iva);
+            i.setPrecio(Double.parseDouble(item.getPrecioItem().getText()));
+
+            fac.listaItem.add(i);
+            double subtotal = fac.subTotal();
+            double total = fac.total();
+            double Piva = fac.iva();
+
+            f.getSubtotalFactura().setText(String.valueOf(subtotal));
+            f.getTotalFactura().setText(String.valueOf(total));
+            f.getIvaFactura().setText(String.valueOf(Piva));
+
+            Object[] objeto = new Object[]{item.getDetalleItem().getText(), iva, item.getCantidadItem().getText(), item.getPrecioItem().getText()};
+            datos.add(objeto);
+
+            for (Object object : datos) {
+                dtm.addRow(objeto);
+            }
+            item.getTablaItems().setModel(dtm);
+            limpiarCamposItem();
         }
 
-        Item i = new Item();
-        i.setCantidad(Integer.parseInt(item.getCantidadItem().getText()));
-        i.setDetalle(item.getDetalleItem().getText());
-        i.setIva(iva);
-        i.setPrecio(Double.parseDouble(item.getPrecioItem().getText()));
+    }
 
-        fac.listaItem.add(i);
-        double subtotal = fac.subTotal();
-        double total = fac.total();
-        double Piva = fac.iva();
-
-        f.getSubtotalFactura().setText(String.valueOf(subtotal));
-        f.getTotalFactura().setText(String.valueOf(total));
-        f.getIvaFactura().setText(String.valueOf(Piva));
-
-        Object[] objeto = new Object[]{item.getDetalleItem().getText(), iva, item.getCantidadItem().getText(), item.getPrecioItem().getText()};
-        datos.add(objeto);
-
-        for (Object object : datos) {
-            dtm.addRow(objeto);
-        }
-        item.getTablaItems().setModel(dtm);
-        limpiarCamposItem();
+    public void limpiarCamposCliente() {
+        rc.getNombreCliente().setText("");
+        rc.getApeCliente().setText("");
+        rc.getTelefonoCliente().setText("");
+        rc.getCedulaCliente().setText("");
+        rc.getCorreoCliente().setText("");
     }
 
     public void limpiarCamposItem() {
@@ -129,6 +149,160 @@ public class ControllerCliente {
         if (item.getRadioIVA().isSelected()) {
             item.getRadioIVA().setSelected(false);
         }
+    }
+
+    public boolean validarItem() {
+
+        boolean ban = true;
+
+        if (item.getDetalleItem().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "EL DETALLE ESTA VACIO");
+            ban = false;
+        }
+        if (!item.getDetalleItem().getText().matches("[a-zA-Z]*")) {
+            JOptionPane.showMessageDialog(rc, "EL DETALLE ES INCORRECTO");
+            ban = false;
+        }
+
+        if (item.getCantidadItem().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "LA CANTIDAD ESTA VACIA");
+            ban = false;
+        }
+
+        if (!item.getCantidadItem().getText().matches("[0-9]*")) {
+            JOptionPane.showMessageDialog(rc, "LA CANTIDAD ES INCORRECTA");
+            ban = false;
+        }
+
+        if (item.getPrecioItem().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "EL PRECIO ESTA VACIO");
+            ban = false;
+        }
+
+        if (!item.getPrecioItem().getText().matches("^[0-9]+(\\\\,[0-9]{1,2})?$")) {
+            JOptionPane.showMessageDialog(rc, "EL PRECIO ES INCORRECTO");
+            ban = false;
+        }
+
+        return ban;
+    }
+
+    public boolean validarCliente() {
+
+        boolean ban = true;
+
+        if (rc.getNombreCliente().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "EL NOMBRE ESTA VACIO");
+            ban = false;
+        }
+        if (!rc.getNombreCliente().getText().matches("[a-zA-Z]*")) {
+            JOptionPane.showMessageDialog(rc, "EL NOMBRE ES INCORRECTO");
+            ban = false;
+        }
+
+        if (rc.getApeCliente().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "EL APELLIDO ESTA VACIO");
+            ban = false;
+        }
+
+        if (!rc.getApeCliente().getText().matches("[a-zA-Z]*")) {
+            JOptionPane.showMessageDialog(rc, "EL APELLIDO ES INCORRECTO");
+            ban = false;
+        }
+
+        if (rc.getCedulaCliente().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "LA CEDULA ESTA VACIA");
+            ban = false;
+        }
+
+        if (!validarCedula(rc.getCedulaCliente().getText())) {
+            JOptionPane.showMessageDialog(rc, "LA CEDULA ES INCORRECTA");
+            ban = false;
+        }
+
+        if (rc.getTelefonoCliente().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "EL TELEFONO ESTA VACIO");
+            ban = false;
+        }
+
+        if (!rc.getTelefonoCliente().getText().matches("^\\d{10}$")) {
+            JOptionPane.showMessageDialog(rc, "EL TELEFONO ES INCORRECTO");
+            ban = false;
+        }
+
+        if (rc.getCorreoCliente().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rc, "EL CORREO ESTA VACIO");
+            ban = false;
+        }
+
+        if (!rc.getCorreoCliente().getText().matches("^(.+)@(.+)$")) {
+            JOptionPane.showMessageDialog(rc, "EL CORREO ES INCORRECTO");
+            ban = false;
+        }
+
+        return ban;
+    }
+
+    public boolean validarCedula(String cedula) {
+        boolean val = false;
+        //Divide la cadena en los 10 numeros
+        //Integer.parseInt sirve para transformar una cadena a entero. 
+        //subString es un metodo de string(Desde, hasta)
+        if (cedula.matches("\\d{10}")) {
+            int d1 = Integer.parseInt(cedula.substring(0, 1));
+            int d2 = Integer.parseInt(cedula.substring(1, 2));
+            int d3 = Integer.parseInt(cedula.substring(2, 3));
+            int d4 = Integer.parseInt(cedula.substring(3, 4));
+            int d5 = Integer.parseInt(cedula.substring(4, 5));
+            int d6 = Integer.parseInt(cedula.substring(5, 6));
+            int d7 = Integer.parseInt(cedula.substring(6, 7));
+            int d8 = Integer.parseInt(cedula.substring(7, 8));
+            int d9 = Integer.parseInt(cedula.substring(8, 9));
+            int d10 = Integer.parseInt(cedula.substring(9));
+
+            //Multiplica todas la posciones impares * 2 y las posiciones pares se multiplica 1
+            d1 = d1 * 2;
+            if (d1 > 9) {
+                d1 = d1 - 9;
+            }
+
+            d3 = d3 * 2;
+            if (d3 > 9) {
+                d3 = d3 - 9;
+            }
+
+            d5 = d5 * 2;
+            if (d5 > 9) {
+                d5 = d5 - 9;
+            }
+
+            d7 = d7 * 2;
+            if (d7 > 9) {
+                d7 = d7 - 9;
+            }
+
+            d9 = d9 * 2;
+            if (d9 > 9) {
+                d9 = d9 - 9;
+            }
+
+            // SUMA TODOS LOS  NUMEROS PARES E IMPARES
+            int sumpar = d2 + d4 + d6 + d8;
+            int sumimp = d1 + d3 + d5 + d7 + d9;
+            int total = sumpar + sumimp;
+
+            //DIVIDO MI DECENA SUPERIRO PARA 10 Y SI EL RESULTADO ES DIFERENTE DE 0 SUMA 1
+            double decenasuperior = total;
+            while (decenasuperior % 10 != 0) {
+                decenasuperior = decenasuperior + 1;
+            }
+
+            if ((decenasuperior - total) == d10) {
+                val = true;
+            }
+        }
+
+        return val;
     }
 
 }

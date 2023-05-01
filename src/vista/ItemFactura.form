@@ -167,6 +167,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="precioItem">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="SOLO NUMEROS CON PUNTO"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="id1">
       <Properties>

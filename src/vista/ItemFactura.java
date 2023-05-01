@@ -66,6 +66,8 @@ public class ItemFactura extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel3.setText("PRECIO");
 
+        precioItem.setToolTipText("SOLO NUMEROS CON PUNTO");
+
         id1.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         id1.setText("ID DE LA FACTURA");
         id1.setEnabled(false);
