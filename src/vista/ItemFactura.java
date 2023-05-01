@@ -34,34 +34,25 @@ public class ItemFactura extends javax.swing.JFrame {
     private void initComponents() {
 
         titulo = new javax.swing.JLabel();
-        id = new javax.swing.JLabel();
-        idItem = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        nombreCliente = new javax.swing.JTextField();
+        detalleItem = new javax.swing.JTextField();
         radioIVA = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        nombreCliente1 = new javax.swing.JTextField();
+        cantidadItem = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        nombreCliente2 = new javax.swing.JTextField();
+        precioItem = new javax.swing.JTextField();
         id1 = new javax.swing.JLabel();
         idFactura = new javax.swing.JLabel();
         btnRegistroItem = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        btnRegistroItem1 = new javax.swing.JButton();
+        tablaItems = new javax.swing.JTable();
+        btnCerrarItem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         titulo.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo.setText("REGISTRO DEL ITEM DE LA FACTURA");
-
-        id.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
-        id.setText("ID DEL ITEM");
-        id.setEnabled(false);
-
-        idItem.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        idItem.setText("jLabel1");
-        idItem.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel1.setText("DETALLE");
@@ -86,21 +77,21 @@ public class ItemFactura extends javax.swing.JFrame {
         btnRegistroItem.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnRegistroItem.setText("REGISTRAR");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaItems);
 
-        btnRegistroItem1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnRegistroItem1.setText("VOLVER");
+        btnCerrarItem.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnCerrarItem.setText("FINALIZAR REGISTRO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,12 +105,8 @@ public class ItemFactura extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(idItem, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(detalleItem, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(idFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -127,14 +114,11 @@ public class ItemFactura extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombreCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(titulo))
+                                .addComponent(precioItem, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(355, 355, 355)
                         .addComponent(btnRegistroItem)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,12 +128,16 @@ public class ItemFactura extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cantidadItem, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(368, 368, 368)
-                .addComponent(btnRegistroItem1)
+                .addGap(238, 238, 238)
+                .addComponent(titulo)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCerrarItem)
+                .addGap(329, 329, 329))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,37 +148,41 @@ public class ItemFactura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(id)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(idItem))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(id1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(idFactura))))
+                        .addComponent(detalleItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(id1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idFactura)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(radioIVA)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nombreCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cantidadItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(nombreCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(precioItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistroItem)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegistroItem1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarItem)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnCerrarItem() {
+        return btnCerrarItem;
+    }
+
+    public void setBtnCerrarItem(JButton btnCerrarItem) {
+        this.btnCerrarItem = btnCerrarItem;
+    }
 
     public JButton getBtnRegistroItem() {
         return btnRegistroItem;
@@ -200,12 +192,20 @@ public class ItemFactura extends javax.swing.JFrame {
         this.btnRegistroItem = btnRegistroItem;
     }
 
-    public JLabel getId() {
-        return id;
+    public JTextField getCantidadItem() {
+        return cantidadItem;
     }
 
-    public void setId(JLabel id) {
-        this.id = id;
+    public void setCantidadItem(JTextField cantidadItem) {
+        this.cantidadItem = cantidadItem;
+    }
+
+    public JTextField getDetalleItem() {
+        return detalleItem;
+    }
+
+    public void setDetalleItem(JTextField detalleItem) {
+        this.detalleItem = detalleItem;
     }
 
     public JLabel getId1() {
@@ -222,14 +222,6 @@ public class ItemFactura extends javax.swing.JFrame {
 
     public void setIdFactura(JLabel idFactura) {
         this.idFactura = idFactura;
-    }
-
-    public JLabel getIdItem() {
-        return idItem;
-    }
-
-    public void setIdItem(JLabel idItem) {
-        this.idItem = idItem;
     }
 
     public JLabel getjLabel1() {
@@ -264,36 +256,12 @@ public class ItemFactura extends javax.swing.JFrame {
         this.jScrollPane1 = jScrollPane1;
     }
 
-    public JTable getjTable1() {
-        return jTable1;
+    public JTextField getPrecioItem() {
+        return precioItem;
     }
 
-    public void setjTable1(JTable jTable1) {
-        this.jTable1 = jTable1;
-    }
-
-    public JTextField getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(JTextField nombreCliente) {
-        this.nombreCliente = nombreCliente;
-    }
-
-    public JTextField getNombreCliente1() {
-        return nombreCliente1;
-    }
-
-    public void setNombreCliente1(JTextField nombreCliente1) {
-        this.nombreCliente1 = nombreCliente1;
-    }
-
-    public JTextField getNombreCliente2() {
-        return nombreCliente2;
-    }
-
-    public void setNombreCliente2(JTextField nombreCliente2) {
-        this.nombreCliente2 = nombreCliente2;
+    public void setPrecioItem(JTextField precioItem) {
+        this.precioItem = precioItem;
     }
 
     public JRadioButton getRadioIVA() {
@@ -304,6 +272,14 @@ public class ItemFactura extends javax.swing.JFrame {
         this.radioIVA = radioIVA;
     }
 
+    public JTable getTablaItems() {
+        return tablaItems;
+    }
+
+    public void setTablaItems(JTable tablaItems) {
+        this.tablaItems = tablaItems;
+    }
+
     public JLabel getTitulo() {
         return titulo;
     }
@@ -312,22 +288,21 @@ public class ItemFactura extends javax.swing.JFrame {
         this.titulo = titulo;
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarItem;
     private javax.swing.JButton btnRegistroItem;
-    private javax.swing.JButton btnRegistroItem1;
-    private javax.swing.JLabel id;
+    private javax.swing.JTextField cantidadItem;
+    private javax.swing.JTextField detalleItem;
     private javax.swing.JLabel id1;
     private javax.swing.JLabel idFactura;
-    private javax.swing.JLabel idItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField nombreCliente;
-    private javax.swing.JTextField nombreCliente1;
-    private javax.swing.JTextField nombreCliente2;
+    private javax.swing.JTextField precioItem;
     private javax.swing.JRadioButton radioIVA;
+    private javax.swing.JTable tablaItems;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

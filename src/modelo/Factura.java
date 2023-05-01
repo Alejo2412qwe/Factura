@@ -17,7 +17,7 @@ public class Factura {
     private Cliente idCliente;
     private String ruc, direccion, telefono;
     private Date fecha;
-    private ArrayList<Item> listaItem;
+    public ArrayList<Item> listaItem;
 
     public Factura() {
         listaItem = new ArrayList<>();

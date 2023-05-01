@@ -11,12 +11,12 @@ import javax.swing.JLabel;
  *
  * @author LaptopSA
  */
-public class Factura extends javax.swing.JFrame {
+public class FacturaV extends javax.swing.JFrame {
 
     /**
      * Creates new form Factura
      */
-    public Factura() {
+    public FacturaV() {
         initComponents();
     }
 
@@ -33,31 +33,33 @@ public class Factura extends javax.swing.JFrame {
         id = new javax.swing.JLabel();
         id1 = new javax.swing.JLabel();
         idFactura = new javax.swing.JLabel();
-        idClienteFactura = new javax.swing.JLabel();
+        cedulaCliente = new javax.swing.JLabel();
         titulo1 = new javax.swing.JLabel();
         rucFactura = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
         rucFactura1 = new javax.swing.JLabel();
         titulo3 = new javax.swing.JLabel();
-        rucFactura2 = new javax.swing.JLabel();
-        rucFactura3 = new javax.swing.JLabel();
+        telefonoFactura = new javax.swing.JLabel();
+        fechaFactura = new javax.swing.JLabel();
         titulo4 = new javax.swing.JLabel();
         btnCerrarFactura = new javax.swing.JButton();
         titulo5 = new javax.swing.JLabel();
-        rucFactura4 = new javax.swing.JLabel();
+        subtotalFactura = new javax.swing.JLabel();
         titulo6 = new javax.swing.JLabel();
-        rucFactura5 = new javax.swing.JLabel();
-        rucFactura6 = new javax.swing.JLabel();
+        ivaFactura = new javax.swing.JLabel();
+        totalFactura = new javax.swing.JLabel();
         titulo7 = new javax.swing.JLabel();
-        btnCerrarFactura1 = new javax.swing.JButton();
+        btnAgregarItem = new javax.swing.JButton();
+        direccionFactura = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         titulo.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo.setText("FACTURA");
 
         id.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        id.setText("ID DEL CLIENTE");
+        id.setText("CEDULA DEL CLIENTE");
         id.setEnabled(false);
 
         id1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -68,34 +70,30 @@ public class Factura extends javax.swing.JFrame {
         idFactura.setText("jLabel1");
         idFactura.setEnabled(false);
 
-        idClienteFactura.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        idClienteFactura.setText("jLabel1");
-        idClienteFactura.setEnabled(false);
+        cedulaCliente.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        cedulaCliente.setText("jLabel1");
+        cedulaCliente.setEnabled(false);
 
         titulo1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo1.setText("RUC");
 
         rucFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura.setText("xd");
         rucFactura.setEnabled(false);
 
         titulo2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo2.setText("DIRECCION");
 
         rucFactura1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura1.setText("xd");
         rucFactura1.setEnabled(false);
 
         titulo3.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo3.setText("TELEFONO");
 
-        rucFactura2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura2.setText("xd");
-        rucFactura2.setEnabled(false);
+        telefonoFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        telefonoFactura.setEnabled(false);
 
-        rucFactura3.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura3.setText("xd");
-        rucFactura3.setEnabled(false);
+        fechaFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        fechaFactura.setEnabled(false);
 
         titulo4.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo4.setText("FECHA");
@@ -106,26 +104,26 @@ public class Factura extends javax.swing.JFrame {
         titulo5.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo5.setText("SUBTOTAL");
 
-        rucFactura4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura4.setText("xd");
-        rucFactura4.setEnabled(false);
+        subtotalFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        subtotalFactura.setEnabled(false);
 
         titulo6.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo6.setText("IVA");
 
-        rucFactura5.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura5.setText("xd");
-        rucFactura5.setEnabled(false);
+        ivaFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        ivaFactura.setEnabled(false);
 
-        rucFactura6.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        rucFactura6.setText("xd");
-        rucFactura6.setEnabled(false);
+        totalFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        totalFactura.setEnabled(false);
 
         titulo7.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo7.setText("TOTAL");
 
-        btnCerrarFactura1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnCerrarFactura1.setText("AGREGAR ITEM");
+        btnAgregarItem.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnAgregarItem.setText("AGREGAR ITEM");
+
+        direccionFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        direccionFactura.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,59 +133,68 @@ public class Factura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(titulo4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rucFactura3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(idClienteFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(id, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(id))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(idFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(id1)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(btnCerrarFactura1))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnAgregarItem))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(titulo1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rucFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(titulo2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rucFactura1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(titulo3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rucFactura2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(titulo1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rucFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(titulo2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(titulo3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(telefonoFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(203, 203, 203)
-                        .addComponent(titulo)))
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(titulo5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(rucFactura4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(titulo7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rucFactura6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(titulo6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rucFactura5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(titulo)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCerrarFactura)
-                        .addGap(184, 184, 184)))
+                        .addContainerGap()
+                        .addComponent(titulo4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fechaFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(btnCerrarFactura)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rucFactura1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(direccionFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 245, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(titulo5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(subtotalFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(titulo7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(totalFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(titulo6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ivaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -196,17 +203,14 @@ public class Factura extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(titulo)
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(id)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idClienteFactura))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(id1)
-                            .addComponent(btnCerrarFactura1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idFactura)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(id1)
+                    .addComponent(btnAgregarItem)
+                    .addComponent(id))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idFactura)
+                    .addComponent(cedulaCliente))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rucFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -214,27 +218,27 @@ public class Factura extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rucFactura1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(titulo2))
+                    .addComponent(titulo2)
+                    .addComponent(direccionFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rucFactura2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(telefonoFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(titulo3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rucFactura3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fechaFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(titulo4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rucFactura4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(subtotalFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(titulo5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(titulo6)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(rucFactura5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3)))
+                    .addComponent(ivaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rucFactura6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(totalFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(titulo7))
                 .addGap(18, 18, 18)
                 .addComponent(btnCerrarFactura)
@@ -242,7 +246,16 @@ public class Factura extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnAgregarItem() {
+        return btnAgregarItem;
+    }
+
+    public void setBtnAgregarItem(JButton btnAgregarItem) {
+        this.btnAgregarItem = btnAgregarItem;
+    }
 
     public JButton getBtnCerrarFactura() {
         return btnCerrarFactura;
@@ -250,6 +263,30 @@ public class Factura extends javax.swing.JFrame {
 
     public void setBtnCerrarFactura(JButton btnCerrarFactura) {
         this.btnCerrarFactura = btnCerrarFactura;
+    }
+
+    public JLabel getCedulaCliente() {
+        return cedulaCliente;
+    }
+
+    public void setCedulaCliente(JLabel cedulaCliente) {
+        this.cedulaCliente = cedulaCliente;
+    }
+
+    public JLabel getDireccionFactura() {
+        return direccionFactura;
+    }
+
+    public void setDireccionFactura(JLabel direccionFactura) {
+        this.direccionFactura = direccionFactura;
+    }
+
+    public JLabel getFechaFactura() {
+        return fechaFactura;
+    }
+
+    public void setFechaFactura(JLabel fechaFactura) {
+        this.fechaFactura = fechaFactura;
     }
 
     public JLabel getId() {
@@ -268,20 +305,20 @@ public class Factura extends javax.swing.JFrame {
         this.id1 = id1;
     }
 
-    public JLabel getIdClienteFactura() {
-        return idClienteFactura;
-    }
-
-    public void setIdClienteFactura(JLabel idClienteFactura) {
-        this.idClienteFactura = idClienteFactura;
-    }
-
     public JLabel getIdFactura() {
         return idFactura;
     }
 
     public void setIdFactura(JLabel idFactura) {
         this.idFactura = idFactura;
+    }
+
+    public JLabel getIvaFactura() {
+        return ivaFactura;
+    }
+
+    public void setIvaFactura(JLabel ivaFactura) {
+        this.ivaFactura = ivaFactura;
     }
 
     public JLabel getRucFactura() {
@@ -300,44 +337,20 @@ public class Factura extends javax.swing.JFrame {
         this.rucFactura1 = rucFactura1;
     }
 
-    public JLabel getRucFactura2() {
-        return rucFactura2;
+    public JLabel getSubtotalFactura() {
+        return subtotalFactura;
     }
 
-    public void setRucFactura2(JLabel rucFactura2) {
-        this.rucFactura2 = rucFactura2;
+    public void setSubtotalFactura(JLabel subtotalFactura) {
+        this.subtotalFactura = subtotalFactura;
     }
 
-    public JLabel getRucFactura3() {
-        return rucFactura3;
+    public JLabel getTelefonoFactura() {
+        return telefonoFactura;
     }
 
-    public void setRucFactura3(JLabel rucFactura3) {
-        this.rucFactura3 = rucFactura3;
-    }
-
-    public JLabel getRucFactura4() {
-        return rucFactura4;
-    }
-
-    public void setRucFactura4(JLabel rucFactura4) {
-        this.rucFactura4 = rucFactura4;
-    }
-
-    public JLabel getRucFactura5() {
-        return rucFactura5;
-    }
-
-    public void setRucFactura5(JLabel rucFactura5) {
-        this.rucFactura5 = rucFactura5;
-    }
-
-    public JLabel getRucFactura6() {
-        return rucFactura6;
-    }
-
-    public void setRucFactura6(JLabel rucFactura6) {
-        this.rucFactura6 = rucFactura6;
+    public void setTelefonoFactura(JLabel telefonoFactura) {
+        this.telefonoFactura = telefonoFactura;
     }
 
     public JLabel getTitulo() {
@@ -404,21 +417,30 @@ public class Factura extends javax.swing.JFrame {
         this.titulo7 = titulo7;
     }
 
+    public JLabel getTotalFactura() {
+        return totalFactura;
+    }
+
+    public void setTotalFactura(JLabel totalFactura) {
+        this.totalFactura = totalFactura;
+    }
+   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarItem;
     private javax.swing.JButton btnCerrarFactura;
-    private javax.swing.JButton btnCerrarFactura1;
+    private javax.swing.JLabel cedulaCliente;
+    private javax.swing.JLabel direccionFactura;
+    private javax.swing.JLabel fechaFactura;
     private javax.swing.JLabel id;
     private javax.swing.JLabel id1;
-    private javax.swing.JLabel idClienteFactura;
     private javax.swing.JLabel idFactura;
+    private javax.swing.JLabel ivaFactura;
     private javax.swing.JLabel rucFactura;
     private javax.swing.JLabel rucFactura1;
-    private javax.swing.JLabel rucFactura2;
-    private javax.swing.JLabel rucFactura3;
-    private javax.swing.JLabel rucFactura4;
-    private javax.swing.JLabel rucFactura5;
-    private javax.swing.JLabel rucFactura6;
+    private javax.swing.JLabel subtotalFactura;
+    private javax.swing.JLabel telefonoFactura;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel titulo1;
     private javax.swing.JLabel titulo2;
@@ -427,5 +449,6 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
+    private javax.swing.JLabel totalFactura;
     // End of variables declaration//GEN-END:variables
 }
