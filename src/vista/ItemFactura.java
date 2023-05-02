@@ -52,7 +52,7 @@ public class ItemFactura extends javax.swing.JFrame {
         setResizable(false);
 
         titulo.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        titulo.setText("REGISTRO DEL ITEM DE LA FACTURA");
+        titulo.setText("REGISTRO DEL ÍTEM DE LA FACTURA");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel1.setText("DETALLE");

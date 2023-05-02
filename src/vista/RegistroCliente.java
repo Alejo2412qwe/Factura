@@ -63,10 +63,10 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel2.setText("APELLIDO DEL CLIENTE");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        jLabel3.setText("CEDULA DEL CLIENTE");
+        jLabel3.setText("CÉDULA DEL CLIENTE");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        jLabel4.setText("TELEFONO DEL CLIENTE");
+        jLabel4.setText("TELÉFONO DEL CLIENTE");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel5.setText("CORREO DEL CLIENTE");

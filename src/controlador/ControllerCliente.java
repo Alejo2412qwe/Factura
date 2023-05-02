@@ -5,9 +5,12 @@
 package controlador;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
@@ -29,6 +32,11 @@ public class ControllerCliente {
     private ItemFactura item = new ItemFactura();
     private FacturaV f = new FacturaV();
     private Factura fac = new Factura();
+    private Cliente c;
+
+    double subtotal;
+    double total;
+    double Piva;
 
     int id = 1;
 
@@ -40,6 +48,7 @@ public class ControllerCliente {
         cargaColumnas();
         item.getBtnRegistroItem().addActionListener(l -> registroITem());
         item.getBtnCerrarItem().addActionListener(l -> item.dispose());
+        f.getBtnCerrarFactura().addActionListener(l -> finalizarFactura());
     }
 
     public void abrirItem() {
@@ -83,6 +92,7 @@ public class ControllerCliente {
             rc.dispose();
             f.setVisible(true);
             f.getIdFactura().setText(String.valueOf(id));
+            f.getDireccionFactura().setText("Av. San Miguel con San Bartolo");
             f.getCedulaCliente().setText(cedulaCLiente);
             f.getTelefonoFactura().setText("0982122184");
             int cod = hashCode();
@@ -114,9 +124,9 @@ public class ControllerCliente {
             i.setPrecio(Double.parseDouble(item.getPrecioItem().getText()));
 
             fac.listaItem.add(i);
-            double subtotal = fac.subTotal();
-            double total = fac.total();
-            double Piva = fac.iva();
+            subtotal = fac.subTotal();
+            total = fac.total();
+            Piva = fac.iva();
 
             f.getSubtotalFactura().setText(String.valueOf(subtotal));
             f.getTotalFactura().setText(String.valueOf(total));
@@ -132,6 +142,65 @@ public class ControllerCliente {
             limpiarCamposItem();
         }
 
+    }
+
+    public void finalizarFactura() {
+
+        f.dispose();
+        item.dispose();
+
+        for (int i = 0; i < fac.listaItem.size(); i++) {
+            fac.listaItem.remove(i);
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel) item.getTablaItems().getModel();
+        modelo.setRowCount(0);
+
+        JOptionPane.showMessageDialog(rc, "FACTURA REGISTRADA");
+
+        String direccion = "Av. San Miguel con San Bartolo";
+        Factura factura = new Factura();
+        factura.setIdFactura(id);
+        factura.setDireccion(direccion);
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        String date = formato.format(new Date());
+        f.getFechaFactura().setText(date);
+        Date fecha = new Date();
+        try {
+            fecha = formato.parse(date);
+            factura.setFecha(fecha);
+            System.out.println(fecha);
+        } catch (Exception ex) {
+            Logger.getLogger(ControllerCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.getRucFactura().setText(generarRuc(c.getCedulaCLiente()));
+        
+        f.getSubtotalFactura().setText("");
+        f.getTotalFactura().setText("");
+        f.getIvaFactura().setText("");
+
+        String telefono = "0982122184";
+        f.getDireccionFactura().setText(direccion);
+        f.getTelefonoFactura().setText(telefono);
+
+        factura.setRuc(generarRuc(c.getCedulaCLiente()));
+        factura.setTelefono(date);
+        factura.setIdCliente(c);
+
+        id = id + 1;
+        f.setVisible(true);
+        f.getIdFactura().setText(String.valueOf(id));
+        for (int i = 0; i < listaCliente.size(); i++) {
+            f.getCedulaCliente().setText(listaCliente.get(i).getCedulaCLiente());
+        }
+
+        limpiarCamposCliente();
+        limpiarCamposItem();
+        subtotal = 0;
+        Piva = 0;
+        total = 0;
     }
 
     public void limpiarCamposCliente() {
@@ -179,7 +248,7 @@ public class ControllerCliente {
             ban = false;
         }
 
-        if (!item.getPrecioItem().getText().matches("^[0-9]+(\\\\,[0-9]{1,2})?$")) {
+        if (!item.getPrecioItem().getText().matches("^-?[0-9]+(\\.[0-9]+)?$")) {
             JOptionPane.showMessageDialog(rc, "EL PRECIO ES INCORRECTO");
             ban = false;
         }
@@ -242,6 +311,27 @@ public class ControllerCliente {
 
         return ban;
     }
+    
+    public static String generarRuc(String cedula) {
+    String ruc = "";
+    if (cedula.length() == 10) {
+        ruc = "2" + cedula.substring(0, 9);
+        int sum = 0;
+        for (int i = 0; i < ruc.length(); i++) {
+            int digit = Integer.parseInt(ruc.substring(i, i + 1));
+            if (i % 2 == 0) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            sum += digit;
+        }
+        int lastDigit = (10 - (sum % 10)) % 10;
+        ruc += lastDigit;
+    }
+    return ruc;
+}
 
     public boolean validarCedula(String cedula) {
         boolean val = false;

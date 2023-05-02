@@ -59,7 +59,7 @@ public class FacturaV extends javax.swing.JFrame {
         titulo.setText("FACTURA");
 
         id.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        id.setText("CEDULA DEL CLIENTE");
+        id.setText("CÉDULA DEL CLIENTE");
         id.setEnabled(false);
 
         id1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -81,13 +81,13 @@ public class FacturaV extends javax.swing.JFrame {
         rucFactura.setEnabled(false);
 
         titulo2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        titulo2.setText("DIRECCION");
+        titulo2.setText("DIRECCIÓN");
 
         rucFactura1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         rucFactura1.setEnabled(false);
 
         titulo3.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        titulo3.setText("TELEFONO");
+        titulo3.setText("TELÉFONO");
 
         telefonoFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         telefonoFactura.setEnabled(false);
@@ -99,7 +99,7 @@ public class FacturaV extends javax.swing.JFrame {
         titulo4.setText("FECHA");
 
         btnCerrarFactura.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnCerrarFactura.setText("IMPRIMIR FACTURA");
+        btnCerrarFactura.setText("FINALIZAR FACTURA");
 
         titulo5.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         titulo5.setText("SUBTOTAL");
@@ -120,7 +120,12 @@ public class FacturaV extends javax.swing.JFrame {
         titulo7.setText("TOTAL");
 
         btnAgregarItem.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnAgregarItem.setText("AGREGAR ITEM");
+        btnAgregarItem.setText("AGREGAR ÍTEM");
+        btnAgregarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarItemActionPerformed(evt);
+            }
+        });
 
         direccionFactura.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         direccionFactura.setEnabled(false);
@@ -246,8 +251,11 @@ public class FacturaV extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarItemActionPerformed
 
     public JButton getBtnAgregarItem() {
         return btnAgregarItem;

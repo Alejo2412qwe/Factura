@@ -7,7 +7,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -191,7 +191,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CEDULA DEL CLIENTE"/>
+        <Property name="text" type="java.lang.String" value="C&#xc9;DULA DEL CLIENTE"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -243,7 +243,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="DIRECCION"/>
+        <Property name="text" type="java.lang.String" value="DIRECCI&#xd3;N"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="rucFactura1">
@@ -259,7 +259,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="TELEFONO"/>
+        <Property name="text" type="java.lang.String" value="TEL&#xc9;FONO"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="telefonoFactura">
@@ -291,7 +291,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="IMPRIMIR FACTURA"/>
+        <Property name="text" type="java.lang.String" value="FINALIZAR FACTURA"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="titulo5">
@@ -347,8 +347,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="AGREGAR ITEM"/>
+        <Property name="text" type="java.lang.String" value="AGREGAR &#xcd;TEM"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarItemActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="direccionFactura">
       <Properties>
